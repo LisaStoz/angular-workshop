@@ -39,7 +39,7 @@ var BillService = function(){
 
 };
 
-eshop.factory('BillService', BillService);
+eshop.service('BillService', BillService);
 
 var ProductDirective = function(){
   return {
