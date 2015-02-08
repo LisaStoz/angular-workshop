@@ -14,68 +14,39 @@
   </style>
 </head>
 
-<body>
+<body ng-app="eshop">
 
-  <div class="container">
+  <div class="container" ng-controller="BasketController" >
 
     <h1>Example Angular App</h1>
     <p>&nbsp;</p>
 
     <div class="row">
       <div class="col-xs-6">
-        <div class="media">
-          <div class="media-left">
-              <i class="fa fa-cube product-img"></i>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">My product</h4>
-            <p>Buy 2 get 1 free</p>
-            <p><span class="badge">£10</span></p>
-            <button type="button" class="btn btn-info">Add to Basket</button>
-          </div>
-        </div>
+        <product></product>
+        <button type="button" class="btn btn-info" ng-click="addProduct()">Add to Basket</button>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6" >
         <div class="panel panel-default">
           <div class="panel-heading"><h2>My Basket</h2></div>
 
-            <ul class="list-group">
+            <ul class="list-group" ng-if="anyProducts">
               <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
-              </li>
-              <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
-              </li>
-              <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
-              </li>
-              <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
-              </li>
-              <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
-              </li>
-              <li class="list-group-item">
-                <span class="badge">£10</span>
-                My Product
+                <span class="label label-warning pull-right">{{quantity}}</span>
+                <product></product>
               </li>
             </ul>
           <div class="panel-footer">
             <strong>Total:</strong>
-            <span class="label label-danger pull-right">£60</span>
+            <span class="label label-danger pull-right">£{{total}}</span>
           </div>
           <div class="panel-footer">
             <strong>Discount (buy 2 get 1 free):</strong>
-            <span class="label label-success pull-right">-£20</span>
+            <span class="label label-success pull-right">-£{{discount}}</span>
           </div>
           <div class="panel-footer">
             <strong>Final price:</strong>
-            <span class="label label-info pull-right">£40</span>
+            <span class="label label-info pull-right">£{{final}}</span>
           </div>
         </div>
       </div>
