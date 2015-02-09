@@ -14,39 +14,58 @@
   </style>
 </head>
 
-<body ng-app="eshop">
+<body>
 
-  <div class="container" ng-controller="BasketController" >
+  <div class="container" >
 
     <h1>Example Angular App</h1>
     <p>&nbsp;</p>
 
     <div class="row">
       <div class="col-xs-6">
-        <product></product>
-        <button type="button" class="btn btn-info" ng-click="addProduct()">Add to Basket</button>
+        <div class="media">
+          <div class="media-left">
+              <i class="fa fa-cube product-img"></i>
+          </div>
+          <div class="media-body" >
+            <h4 class="media-heading">My Product</h4>
+            <p>Buy 2 get 1 free</p>
+            <p><span class="badge">£10</span></p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-info">Add to Basket</button>
       </div>
       <div class="col-xs-6" >
         <div class="panel panel-default">
           <div class="panel-heading"><h2>My Basket</h2></div>
 
-            <ul class="list-group" ng-if="anyProducts">
+            <ul class="list-group">
               <li class="list-group-item">
-                <span class="pull-right"><input type="text" ng-model="product.quantity"></span>
-                <product></product>
+                <span class="pull-right"><input type="text" value="6"></span>
+                <div class="media">
+                  <div class="media-left">
+                      <i class="fa fa-cube product-img"></i>
+                  </div>
+                  <div class="media-body" >
+                    <h4 class="media-heading">My Product</h4>
+                    <p>Buy 2 get 1 free</p>
+                    <p><span class="badge">£10</span></p>
+                  </div>
+                </div>
               </li>
             </ul>
           <div class="panel-footer">
-            <strong>Total ({{product.quantity}} * £10):</strong>
-            <span class="label label-danger pull-right">£{{total}}</span>
+            <strong>Total (6 * £10):</strong>
+            <span class="label label-danger pull-right">£60</span>
           </div>
           <div class="panel-footer">
             <strong>Discount (buy 2 get 1 free):</strong>
-            <span class="label label-success pull-right">-£{{discount}}</span>
+            <span class="label label-success pull-right">-£20</span>
           </div>
           <div class="panel-footer">
             <strong>Final price:</strong>
-            <span class="label label-info pull-right">£{{final}}</span>
+            <span class="label label-info pull-right">£40</span>
           </div>
         </div>
       </div>
