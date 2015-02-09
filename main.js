@@ -5,14 +5,16 @@ var BasketController = function($scope, BillService){
   $scope.total = 0;
   $scope.discount = 0;
   $scope.final = 0;
-  $scope.quantity = 0;
+  $scope.product = {
+    quantity: 0
+  };
   $scope.anyProducts = false;
 
   $scope.addProduct = function(){
-    $scope.quantity++;
+    $scope.product.quantity++;
     $scope.anyProducts = true;
-    $scope.total = BillService.calculateTotal($scope.quantity);
-    $scope.discount = BillService.calculateDiscount($scope.quantity);
+    $scope.total = BillService.calculateTotal($scope.product.quantity);
+    $scope.discount = BillService.calculateDiscount($scope.product.quantity);
     $scope.final = BillService.calculateFinal($scope.total, $scope.discount);
   };
 };
@@ -44,7 +46,7 @@ eshop.service('BillService', BillService);
 var ProductDirective = function(){
   return {
     templateUrl: 'product.html'
-  }
+  };
 };
 
 eshop.directive('product', ProductDirective);

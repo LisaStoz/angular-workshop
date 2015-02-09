@@ -32,12 +32,12 @@
 
             <ul class="list-group" ng-if="anyProducts">
               <li class="list-group-item">
-                <span class="label label-warning pull-right">{{quantity}}</span>
+                <span class="pull-right"><input type="text" ng-model="product.quantity"></span>
                 <product></product>
               </li>
             </ul>
           <div class="panel-footer">
-            <strong>Total:</strong>
+            <strong>Total ({{product.quantity}} * £10):</strong>
             <span class="label label-danger pull-right">£{{total}}</span>
           </div>
           <div class="panel-footer">
